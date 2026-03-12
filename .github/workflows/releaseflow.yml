@@ -62,22 +62,22 @@ jobs:
           name: zipped-project-jar-file
           path: target/*.jar
 
-release:
-  runs-on: ubuntu-latest
-  permissions:
-    contents: write
-      
-  needs: deliver-jar
+  release:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+        
+    needs: deliver-jar
 
-  steps:
-    - uses: actions/download-artifact@v4
-      with:
-        name: zipped-project-jar-file
-        path: jar
+    steps:
+      - uses: actions/download-artifact@v4
+        with:
+          name: zipped-project-jar-file
+          path: jar
 
-    - name: Zip artifact
-      run: zip -r deliver-jar.zip jar/
+      - name: Zip artifact
+        run: zip -r deliver-jar.zip jar/
 
-    - uses: ncipollo/release-action@v1
-      with:
-        artifacts: deliver-jar.zip
+      - uses: ncipollo/release-action@v1
+        with:
+          artifacts: deliver-jar.zip
