@@ -1,8 +1,10 @@
 name: release-action
 
 on:
-  tag:
+  push:
     branches: [ main ]
+    tags:
+      - '*'
 
 jobs:
   build-and-test:
