@@ -72,12 +72,12 @@ release:
   steps:
     - uses: actions/download-artifact@v4
       with:
-        name: Build
-        path: Build
+        name: zipped-project-jar-file
+        path: jar
 
     - name: Zip artifact
-      run: zip -r deliver-jar.zip Build/
+      run: zip -r deliver-jar.zip jar/
 
     - uses: ncipollo/release-action@v1
       with:
-        artifacts: "deliver-jar.zip"
+        artifacts: deliver-jar.zip
