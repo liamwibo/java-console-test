@@ -75,4 +75,4 @@ jobs:
       - run: zip -r zipped-project-jar-file.zip build/
       - uses: ncipollo/release-action@v1
         with:
-          artifacts: "build.zip"
+          artifacts: "zipped-project-jar-file.zip"
