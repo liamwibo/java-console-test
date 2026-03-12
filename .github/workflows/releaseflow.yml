@@ -72,8 +72,8 @@ jobs:
     steps:
       - uses: actions/download-artifact@v4
         with:
-          name: deliver-jar
-          path: deliver-jar
+          name: zipped-project-jar-file
+          path: target/*.jar
       - run: zip -r zipped-project-jar-file.zip deliver-jar/
       - uses: ncipollo/release-action@v1
         with:
